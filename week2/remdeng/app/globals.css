@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+ * GameVault — palet "neon arcade" yang mengikuti tema perangkat.
+ * Nilai warna disimpan sebagai CSS variable di :root (tema terang) dan
+ * ditimpa di @media (prefers-color-scheme: dark). Semua utility Tailwind
+ * (bg-brand, text-fg, dst.) otomatis ikut berganti.
+ *
+ * Rasio kontras WCAG 2.2 (teks normal ≥ 4.5:1):
+ *   Terang: brand 5.4:1 · accent 6.0:1 · neon 7.1:1 · gold 6.8:1 · muted 7.5:1
+ *   Gelap : brand 13:1  · accent 5.3:1 · neon 15:1  · gold 13:1  · muted 7.5:1
+ * ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---------- Tema TERANG ---------- */
+  --void: #f4f6fb; /* latar halaman */
+  --surface: #ffffff; /* kartu / panel */
+  --surface-2: #eef1f8; /* panel sekunder */
+  --line: #d5dbea; /* garis dekoratif */
+  --line-strong: #6b7593; /* border input (≥ 3:1) */
+  --fg: #0b1020; /* judul & teks utama */
+  --fg-soft: #1f2a44; /* teks sekunder kuat */
+  --muted: #4a5470; /* teks pendukung */
+
+  --brand: #0e7490; /* cyan tua */
+  --brand-hover: #155e75;
+  --on-brand: #ffffff; /* teks di atas brand */
+  --accent: #be185d; /* magenta tua */
+  --on-accent: #ffffff;
+  --neon: #3f6212; /* hijau "press start" */
+  --gold: #854d0e; /* rating */
+
+  --glow-brand: rgb(14 116 144 / 0.35);
+  --glow-accent: rgb(190 24 93 / 0.3);
+
+  --background: var(--void);
+  --foreground: var(--fg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ---------- Tema GELAP ---------- */
+    --void: #0a0e1a;
+    --surface: #121829;
+    --surface-2: #1a2238;
+    --line: #2a3352;
+    --line-strong: #6b77a3;
+    --fg: #ffffff;
+    --fg-soft: #e2e8f0;
+    --muted: #a3acc7;
+
+    --brand: #00e5ff; /* cyan neon */
+    --brand-hover: #00b8d4;
+    --on-brand: #0a0e1a;
+    --accent: #ff2e88; /* magenta neon */
+    --on-accent: #0a0e1a;
+    --neon: #a3ff12;
+    --gold: #ffd60a;
+
+    --glow-brand: rgb(0 229 255 / 0.6);
+    --glow-accent: rgb(255 46 136 / 0.6);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-press-start);
+}
+
+/* Token warna GameVault → bg-brand, text-brand, border-brand, text-fg, dll. */
+@theme {
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-on-brand: var(--on-brand);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-neon: var(--neon);
+  --color-gold: var(--gold);
+  --color-void: var(--void);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-soft: var(--fg-soft);
+  --color-muted: var(--muted);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
