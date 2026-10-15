@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "judul": "Panel surya atap",
+    "kategori": "energi",
+    "deskripsi": "Pemantauan produksi listrik harian.",
+    "tersedia": true
+  },
+  {
+    "id": 2,
+    "judul": "Inverter Listrik Smart",
+    "kategori": "energi",
+    "deskripsi": "Mengubah arus DC dari panel menjadi AC.",
+    "tersedia": true
+  },
+  {
+    "id": 3,
+    "judul": "Baterai Penyimpan Energi",
+    "kategori": "lingkungan",
+    "deskripsi": "Menyimpan daya listrik harian.",
+    "tersedia": false
+  }
+]
